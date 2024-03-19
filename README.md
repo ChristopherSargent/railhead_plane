@@ -7,7 +7,7 @@
 
 * Tested on STIG Hardened Ubuntu 20.04
 
-1. ssh onrails@184.94.220.214 (keycloak02)
+1. ssh onrails@184.94.208.227 (keycloak02)
 2. sudo -i 
 3. curl -fsSL https://get.docker.com -o install-docker.sh && sudo sh install-docker.sh
 4. mkdir railhead_plane
@@ -51,7 +51,7 @@ SPACE_REPLICAS=1
 API_REPLICAS=1
 
 NGINX_PORT=80
-WEB_URL=http://gov.ash.pln.001
+WEB_URL=http://184.94.208.227
 DEBUG=0
 NEXT_PUBLIC_DEPLOY_URL=http://localhost/spaces
 SENTRY_DSN=
@@ -60,7 +60,7 @@ GOOGLE_CLIENT_ID=
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
 DOCKERIZED=1 # deprecated
-CORS_ALLOWED_ORIGINS=http://gov.ash.pln.001
+CORS_ALLOWED_ORIGINS=http://184.94.208.227
 
 #DB SETTINGS
 PGHOST=plane-db
@@ -122,10 +122,10 @@ GUNICORN_WORKERS=2
 17. Select 7 for exit 
 18. PowerShell Admin > notepad C:\Windows\System32\drivers\etc\hosts
 ```
-184.94.220.214 gov.ash.pln.001
+184.94.208.227 gov.ash.pln.001
 ```
 19. http://gov.ash.pln.001
-20. 
+
 # Set up for SSL
 21. cd /root/railhead_plane
 
@@ -170,7 +170,7 @@ server {
     #access_log  /var/log/nginx/host.access.log  main;
 
     location / {
-    proxy_pass http://184.94.220.214/;
+    proxy_pass http://184.94.208.227/;
     proxy_buffering off;
     proxy_http_version 1.1;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -267,7 +267,14 @@ d425e7e1a40f   postgres:15.2-alpine              "docker-entrypoint.s…"   12 m
 af6e1d7c4497   redis:6.2.7-alpine                "docker-entrypoint.s…"   12 minutes ago       Up 12 minutes       6379/tcp                                        plane-app-plane-redis-1
 79cb387c3167   minio/minio                       "/usr/bin/docker-ent…"   12 minutes ago       Up 12 minutes       9000/tcp                                        plane-app-plane-minio-1
 ```
-30. https://184.94.220.214/god-mode
+30. https://184.94.208.227/god-mode
 * christopher.sargent@railhead.io
-* 31Nst31n!40
+
+![Screenshot](resources/screenshot01.png)
 31. Got to Go Mode
+
+![Screenshot](resources/screenshot02.png)
+
+32. Configure 
+
+![Screenshot](resources/screenshot03.png)
